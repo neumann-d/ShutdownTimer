@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# shutdowntimerctl - This script can configure the shutdown and rtc wake alarm schedule.
+#
+# This file is part of the gnome-shell extension ShutdownTimer@neumann.
+
+SHUTDOWN_BIN=/usr/sbin/shutdown
+RTCWAKE_BIN=/usr/sbin/rtcwake
+
+SHUTDOWN_MODE="-P"
+if [ ! -z "$2" ] && [ "$2" -gt 0 ];then
+	POSITIVE_VALUE="$2"
+fi
+
+function print_help() {
+	echo "[help] (show this help)" >&2
+	echo "[shutdown|reboot] {MINUTES}" >&2
+	echo "[wake|wake-cancel] {UNIX_TIMESTAMP} (default: 0)" >&2
+}
+
+if [ "$#" -lt 1 ]; then
+	print_help
+	exit
+fi
+
+case "$1" in
+	shutdown|reboot)
+		if [[ "$1" = "reboot" ]]; then
+			SHUTDOWN_MODE="-r"
+		fi
+		$SHUTDOWN_BIN "$SHUTDOWN_MODE" "$POSITIVE_VALUE"
+		;;
+	shutdown-cancel)
+		$SHUTDOWN_BIN -c
+		;;
+	wake|wake-cancel)
+		if [ -z "$POSITIVE_VALUE" ];then
+			$RTCWAKE_BIN --mode disable
+		else
+			$RTCWAKE_BIN --date +${POSITIVE_VALUE}min --mode on &
+			PID=$!
+			sleep 0.2
+			kill $PID
+		fi
+		;;
+	-h|help)
+		print_help
+		;;
+	*)
+		echo "Invalid argument: $1" >&2
+		print_help
+esac
+
