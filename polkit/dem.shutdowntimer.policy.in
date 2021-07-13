@@ -2,7 +2,7 @@
 <!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN" "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
 <policyconfig>
         <vendor>Shutdown Timer</vendor>
-        <vendor_url>https://github.com/Deminder/ShutdownTimer</vendor_url>
+        <vendor_url>https://github.com/neumann-d/ShutdownTimer</vendor_url>
 
         <action id="{{ACTION_ID}}">
                 <description>Control shutdown and rtc wake alarm schedule</description>

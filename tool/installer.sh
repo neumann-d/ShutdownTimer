@@ -2,7 +2,7 @@
 
 # installer.sh - This script installs a policykit rule for the Shutdown Timer gnome-shell extension.
 #
-# This file is part of the gnome-shell extension ShutdownTimer@Deminder.
+# This file is part of the gnome-shell extension ShutdownTimer@neumann.
 
 # Authors: Martin Koppehel <psl.kontakt@gmail.com>, Fin Christensen <christensen.fin@gmail.com> (cpupower extension), Deminder <tremminder@gmail.com>
 
