@@ -2,7 +2,7 @@
 
 # shutdowntimerctl - This script can configure the shutdown and rtc wake alarm schedule.
 #
-# This file is part of the gnome-shell extension ShutdownTimer@Deminder.
+# This file is part of the gnome-shell extension ShutdownTimer@neumann.
 
 SHUTDOWN_BIN=/usr/sbin/shutdown
 RTCWAKE_BIN=/usr/sbin/rtcwake
