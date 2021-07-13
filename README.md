@@ -1,7 +1,7 @@
 <h1 align="center">Shutdown Timer for Gnome Shell</h1>
 <p align="center">
   <img alt="Shutdown Timer Icon" width="228" src="bin/icon.svg"/>
-  <a href="https://extensions.gnome.org/extension/4372/shutdowntimer/">
+  <a href="https://extensions.gnome.org/extension/792/shutdowntimer/">
     <img alt="Get it on GNOME Extensions" width="228" src="https://raw.githubusercontent.com/andyholmes/gnome-shell-extensions-badge/master/get-it-on-ego.svg?sanitize=true"/>
   </a>
   <br/>
