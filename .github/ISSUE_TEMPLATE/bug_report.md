@@ -26,7 +26,7 @@ _A clear and concise description of what you expected to happen._
 _If applicable, add screenshots to help explain your problem._
 
 **System**
-- Extension version: `gnome-extensions info ShutdownTimer@deminder | grep -i version`
+- Extension version: `gnome-extensions info ShutdownTimer@neumann | grep -i version`
 - GNOME shell version: `gnome-shell --version`
 - Distro: _Ubuntu 20.04, Fedora 34, etc._
 

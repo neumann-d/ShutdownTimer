@@ -2,7 +2,7 @@
 
 # installer.sh - This script installs a policykit rule for the Shutdown Timer gnome-shell extension.
 #
-# This file is part of the gnome-shell extension ShutdownTimer@Deminder.
+# This file is part of the gnome-shell extension ShutdownTimer@neumann.
 
 # Authors: Martin Koppehel <psl.kontakt@gmail.com>, Fin Christensen <christensen.fin@gmail.com> (cpupower extension), Deminder <tremminder@gmail.com>
 
@@ -13,7 +13,7 @@ set -e
 ################################
 
 EXTENSION_NAME="Shutdown Timer"
-ACTION_BASE="dem.shutdowntimer"
+ACTION_BASE="de.shutdowntimer"
 RULE_BASE="$ACTION_BASE.settimers"
 CFC_BASE="shutdowntimerctl"
 POLKIT_DIR="polkit"
@@ -228,7 +228,7 @@ then
         echo -n "$(gtxt 'Uninstalling') $(gtxt 'policykit action')..."
         rm "${ACTION_OUT}" || fail " - $(gtxt 'cannot remove') ${ACTION_OUT}" && success
     fi
-    LEG_RULE_OUT="/usr/share/polkit-1/rules.d/10-dem.shutdowntimer.settimers.rules"
+    LEG_RULE_OUT="/usr/share/polkit-1/rules.d/10-de.shutdowntimer.settimers.rules"
     if [ -f "$LEG_RULE_OUT" ]
     then
         # remove legacy "policykit action" install
