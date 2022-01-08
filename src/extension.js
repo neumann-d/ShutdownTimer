@@ -2,8 +2,7 @@
     AUTHOR: Daniel Neumann
     GJS SOURCES: https://github.com/GNOME/gnome-shell/
     COMPILING SCHEMAS: glib-compile-schemas schemas/
-    EDIT LOCALE: e.g. use Poedit and open ShutdownTimer.po files
-    COMPILING LOCALE: msgfmt ShutdownTimer.po -o ShutdownTimer.mo
+    EDIT LOCALE: e.g. use Poedit and open *.po files
 **/
 
 /* IMPORTS */
@@ -24,17 +23,14 @@ const Switcher = imports.ui.switcherPopup;
 const Gettext = imports.gettext.domain('ShutdownTimer');
 const _ = Gettext.gettext;
 
-
 // import own scripts
 const ExtensionUtils = imports.misc.extensionUtils;
 const Extension = ExtensionUtils.getCurrentExtension();
 const Timer = Extension.imports.timer;
-const Convenience = Extension.imports.convenience;
-
 
 /* GLOBAL VARIABLES */
 let textbox, submenu, slider, switcher, separator, settings, timer;
-
+const settingsSignals = [];
 
 /* ACTION FUNCTIONS */
 // show textbox with message
@@ -195,28 +191,35 @@ function render() {
 /* EXTENSION MAIN FUNCTIONS */
 function init() {
     // initialize translations
-    Convenience.initTranslations();
-
-    // initialize settings
-    settings = Convenience.getSettings();
+    ExtensionUtils.initTranslations();
 }
 
 function enable() {
     // initialize timer
     timer = new Timer.Timer(timerAction);
 
+    // initialize settings
+    settings = ExtensionUtils.getSettings();
+
     // render menu widget
     render();
 
     // handlers for changed values in settings
-    settings.connect('changed::max-timer-value', _onSettingsChanged);
-    settings.connect('changed::slider-value', _onSettingsChanged);
-    settings.connect('changed::root-mode-value', _onSettingsChanged);
-    settings.connect('changed::show-settings-value', _onShowSettingsButtonChanged);
+    settingsSignals.push(settings.connect('changed::max-timer-value', _onSettingsChanged));
+    settingsSignals.push(settings.connect('changed::slider-value', _onSettingsChanged));
+    settingsSignals.push(settings.connect('changed::root-mode-value', _onSettingsChanged));
+    settingsSignals.push(settings.connect('changed::show-settings-value', _onShowSettingsButtonChanged));
 }
 
 function disable() {
     timer.stopTimer(); // removes timer from Mainloop
     submenu.destroy(); // destroys switcher and sliderItem as children too
     separator.destroy();
+
+    // disconnect settings signals
+    settingsSignals.forEach((signal) => global.settings.disconnect(signal));
+    settingsSignals = [];
+
+    timer = null;
+    settings = null;
 }

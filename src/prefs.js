@@ -4,20 +4,17 @@
 
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
-const Lang = imports.lang;
 
 const Gettext = imports.gettext.domain('ShutdownTimer');
 const _ = Gettext.gettext;
 
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
-const Convenience = Me.imports.convenience;
 
 let settings;
 
 function init() {
-    Convenience.initTranslations();
-    settings = Convenience.getSettings();
+    ExtensionUtils.initTranslations();
 }
 
 const ShutdownTimerPrefsWidget = new GObject.Class({
@@ -36,15 +33,17 @@ const ShutdownTimerPrefsWidget = new GObject.Class({
         this.attach(new Gtk.Label({ label: '<b>' + _("Maximum timer value (in minutes)") + '</b>',
                         use_markup: true,
                         halign: Gtk.Align.START }), 0, 0, 1, 1);
-                                    
+        
+        settings = ExtensionUtils.getSettings();
+
         let entry = new Gtk.SpinButton({halign:Gtk.Align.START});
         let maxTimerValueDefault = settings.get_int('max-timer-value');
         entry.set_increments(1, 1);
         entry.set_range(1, 500);
-        entry.connect('value-changed', Lang.bind(this, function(button){
+        entry.connect('value-changed', (button) => {
             let s = button.get_value_as_int();
             settings.set_int('max-timer-value', s);
-        }));
+        });
         entry.set_value(maxTimerValueDefault);
         this.attach(entry, 0, 1, 1, 1);
         
@@ -58,10 +57,10 @@ const ShutdownTimerPrefsWidget = new GObject.Class({
         let sliderDefault = settings.get_int('slider-value');
         sliderEntry.set_increments(1, 1);
         sliderEntry.set_range(0, 100);
-        sliderEntry.connect('value-changed', Lang.bind(this, function(button){
+        sliderEntry.connect('value-changed', (button) => {
             let s = button.get_value_as_int();
             settings.set_int('slider-value', s);
-        }));
+        });
         sliderEntry.set_value(sliderDefault);
         this.attach(sliderEntry, 0, 4, 1, 1);
         
@@ -73,9 +72,9 @@ const ShutdownTimerPrefsWidget = new GObject.Class({
                         halign: Gtk.Align.START }), 0, 6, 1, 1);
         let settingsButtonValue = settings.get_boolean('show-settings-value');
         let switchMenuItemSettingsButton = new Gtk.Switch({halign:Gtk.Align.START});
-        switchMenuItemSettingsButton.connect('notify::active', Lang.bind(this, function(check){ 
+        switchMenuItemSettingsButton.connect('notify::active', (check) => { 
             settings.set_boolean('show-settings-value', check.get_active());
-        }));
+        });
         switchMenuItemSettingsButton.set_active(settingsButtonValue);
         this.attach(switchMenuItemSettingsButton, 0, 7, 1, 1);
 
@@ -86,9 +85,9 @@ const ShutdownTimerPrefsWidget = new GObject.Class({
                         halign: Gtk.Align.START }), 0, 9, 1, 1);
         let rootMode = settings.get_boolean('root-mode-value');
         let switchMenuItemRootMode = new Gtk.Switch({halign:Gtk.Align.START});
-        switchMenuItemRootMode.connect('notify::active', Lang.bind(this, function(check){ 
+        switchMenuItemRootMode.connect('notify::active', (check) => { 
             settings.set_boolean('root-mode-value', check.get_active());
-        }));
+        });
         switchMenuItemRootMode.set_active(rootMode);
         this.attach(switchMenuItemRootMode, 0, 10, 1, 1);
 
@@ -99,9 +98,9 @@ const ShutdownTimerPrefsWidget = new GObject.Class({
                         halign: Gtk.Align.START }), 0, 12, 1, 1);
         let useSuspendValue = settings.get_boolean('use-suspend-value');
         let switchMenuItemUseSuspend = new Gtk.Switch({halign:Gtk.Align.START});
-        switchMenuItemUseSuspend.connect('notify::active', Lang.bind(this, function(check){ 
+        switchMenuItemUseSuspend.connect('notify::active', (check) => { 
             settings.set_boolean('use-suspend-value', check.get_active());
-        }));
+        });
         switchMenuItemUseSuspend.set_active(useSuspendValue);
         this.attach(switchMenuItemUseSuspend, 0, 13, 1, 1);
     }

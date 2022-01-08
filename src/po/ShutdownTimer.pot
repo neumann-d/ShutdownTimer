@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shutdown Timer GNOME Shell Extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-29 23:29+0800\n"
+"POT-Creation-Date: 2022-01-08 16:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,31 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:93
-msgid "System will shutdown in"
-msgstr ""
-
-#: extension.js:94
-msgid "minutes"
-msgstr ""
-
-#: extension.js:97
-msgid "Shutdown Timer stopped"
-msgstr ""
-
-#: extension.js:98 extension.js:161
-msgid "Shutdown Timer"
-msgstr ""
-
-#: extension.js:105
+#: extension.js:79 extension.js:108
 msgid "min"
 msgstr ""
 
-#: extension.js:107
+#: extension.js:82 extension.js:110
 msgid "min (root)"
 msgstr ""
 
-#: extension.js:114
+#: extension.js:96
+msgid "System will shutdown in"
+msgstr ""
+
+#: extension.js:97
+msgid "minutes"
+msgstr ""
+
+#: extension.js:100
+msgid "Shutdown Timer stopped"
+msgstr ""
+
+#: extension.js:101 extension.js:179
+msgid "Shutdown Timer"
+msgstr ""
+
+#: extension.js:119
 msgid "Settings"
 msgstr ""
 
@@ -49,17 +49,25 @@ msgstr ""
 msgid "Maximum timer value (in minutes)"
 msgstr ""
 
-#: prefs.js:51
+#: prefs.js:53
 #, javascript-format
 msgid "Slider position (in % from 0 to 100)"
 msgstr ""
 
-#: prefs.js:70
+#: prefs.js:71
+msgid "Show settings button"
+msgstr ""
+
+#: prefs.js:84
 msgid ""
 "Root mode (uses 'pkexec shutdown' command,\n"
 "no interruption of timer, but needs root password)"
 msgstr ""
 
-#: timer.js:44 timer.js:64
+#: prefs.js:97
+msgid "Use suspend"
+msgstr ""
+
+#: timer.js:43 timer.js:63
 msgid "min till shutdown"
 msgstr ""
