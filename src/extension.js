@@ -217,7 +217,7 @@ function disable() {
     separator.destroy();
 
     // disconnect settings signals
-    settingsSignals.forEach((signal) => global.settings.disconnect(signal));
+    settingsSignals.forEach((signal) => settings.disconnect(signal));
     settingsSignals = [];
 
     timer = null;
