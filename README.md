@@ -1,5 +1,7 @@
 # Shutdown Timer
 
+> An extended version of this GNOME shell extension is maintained by Deminder ([https://github.com/Deminder/ShutdownTimer](https://github.com/Deminder/ShutdownTimer)). You can install it from [https://extensions.gnome.org/extension/4372/shutdowntimer/](https://extensions.gnome.org/extension/4372/shutdowntimer/).
+
 Shutdown/suspend your device after a specific time. This extension adds a submenu to the status area. 
 
 ![Screenshot](screenshot.png)
@@ -12,6 +14,7 @@ There is a settings menu where you can change the following:
 * Root mode: Uses "pkexec shutdown" command instead of default GNOME shutdown dialog. If monitor turns off while shutdown timer is running, then default timer in rootless mode gets interrupted.
   With root mode activated this can not happen, but you have to enter the root password.
 * **!!! NEW !!!** Suspend mode: Suspend device instead of shutdown
+
 
 ## Official Installation
 
