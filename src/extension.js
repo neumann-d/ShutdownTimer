@@ -30,7 +30,7 @@ const Timer = Extension.imports.timer;
 
 /* GLOBAL VARIABLES */
 let textbox, submenu, slider, switcher, separator, settings, timer;
-const settingsSignals = [];
+let settingsSignals = [];
 
 /* ACTION FUNCTIONS */
 // show textbox with message
