@@ -65,20 +65,22 @@ function _getTimerStartValue() {
 // update timer value if slider has changed
 function _onSliderChanged() {
     settings.set_int('slider-value', (slider.value * 100));
-    switcher.label.text = _getTimerStartValue().toString() + ' min';
+    const [houers, minutes] = timer.calculateTimeStamp(_getTimerStartValue())
+    switcher.label.text = houers + ' ' +_("h : ") + minutes + ' min';
     
     if (settings.get_boolean('root-mode-value')) {
-        switcher.label.text = _getTimerStartValue().toString() + ' min (root)'; 
+        switcher.label.text = houers + ' ' +_("h : ") + minutes + ' min (root)'; 
     }
 }
 
 function _onSettingsChanged() {
     let sliderValue =  settings.get_int('slider-value') / 100.0;
     slider.value = sliderValue;
-    switcher.label.text = _getTimerStartValue().toString() + ' ' +_("min");
+    const [houers, minutes] = timer.calculateTimeStamp(_getTimerStartValue())
+    switcher.label.text = houers + ' ' +_("h : ") + minutes + ' ' +_("min");
     
     if (settings.get_boolean('root-mode-value')) {
-        switcher.label.text = _getTimerStartValue().toString() + ' ' +_("min (root)");
+        switcher.label.text = houers + ' ' +_("h : ") + minutes + ' ' +_("min (root)");
     }
 }
 
@@ -92,8 +94,9 @@ function _onShowSettingsButtonChanged() {
 function _onToggle() {
     if(switcher.state) {
         timer.startTimer();
+        const [houers, minutes] = timer.calculateTimeStamp(_getTimerStartValue())
         _showTextbox(   _("System will shutdown in")+ ' ' 
-                        + _getTimerStartValue().toString() + ' '+_("minutes"));
+                        + houers + ' ' +_("h : ") + minutes + ' '+_("minutes"));
     } else {
         timer.stopTimer();
         _showTextbox(_("Shutdown Timer stopped"));
@@ -104,9 +107,10 @@ function _onToggle() {
 // menu items switcher and slider
 function _createSwitcherItem() {
     let switchMenuItem = new PopupMenu.PopupSwitchMenuItem('', false);
-    switchMenuItem.label.text = _getTimerStartValue().toString() + ' ' +_("min");
+    const [houers, minutes] = timer.calculateTimeStamp(_getTimerStartValue())
+    switchMenuItem.label.text = houers + ' ' +_("h : ") + minutes + ' ' +_("min");
     if(settings.get_boolean('root-mode-value')) {
-        switchMenuItem.label.text = _getTimerStartValue().toString() + ' ' +_("min (root)");
+        switchMenuItem.label.text = houers + ' ' +_("h : ") + minutes + ' ' +_("min (root)");
     }
     
     switchMenuItem.connect('toggled', _onToggle);
