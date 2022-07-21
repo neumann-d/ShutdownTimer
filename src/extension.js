@@ -65,22 +65,22 @@ function _getTimerStartValue() {
 // update timer value if slider has changed
 function _onSliderChanged() {
     settings.set_int('slider-value', (slider.value * 100));
-    const [houers, minutes] = timer.calculateTimeStamp(_getTimerStartValue())
-    switcher.label.text = houers + ' ' +_("h : ") + minutes + ' min';
+    const [hours, minutes] = timer.convertTime(_getTimerStartValue())
+    switcher.label.text = hours + ' ' +_("h : ") + minutes + ' min';
     
     if (settings.get_boolean('root-mode-value')) {
-        switcher.label.text = houers + ' ' +_("h : ") + minutes + ' min (root)'; 
+        switcher.label.text = hours + ' ' +_("h : ") + minutes + ' min (root)'; 
     }
 }
 
 function _onSettingsChanged() {
     let sliderValue =  settings.get_int('slider-value') / 100.0;
     slider.value = sliderValue;
-    const [houers, minutes] = timer.calculateTimeStamp(_getTimerStartValue())
-    switcher.label.text = houers + ' ' +_("h : ") + minutes + ' ' +_("min");
+    const [hours, minutes] = timer.convertTime(_getTimerStartValue())
+    switcher.label.text = hours + ' ' +_("h : ") + minutes + ' ' +_("min");
     
     if (settings.get_boolean('root-mode-value')) {
-        switcher.label.text = houers + ' ' +_("h : ") + minutes + ' ' +_("min (root)");
+        switcher.label.text = hours + ' ' +_("h : ") + minutes + ' ' +_("min (root)");
     }
 }
 
@@ -94,9 +94,9 @@ function _onShowSettingsButtonChanged() {
 function _onToggle() {
     if(switcher.state) {
         timer.startTimer();
-        const [houers, minutes] = timer.calculateTimeStamp(_getTimerStartValue())
+        const [hours, minutes] = timer.convertTime(_getTimerStartValue())
         _showTextbox(   _("System will shutdown in")+ ' ' 
-                        + houers + ' ' +_("h : ") + minutes + ' '+_("minutes"));
+                        + hours + ' ' +_("h : ") + minutes + ' '+_("minutes"));
     } else {
         timer.stopTimer();
         _showTextbox(_("Shutdown Timer stopped"));
@@ -107,10 +107,10 @@ function _onToggle() {
 // menu items switcher and slider
 function _createSwitcherItem() {
     let switchMenuItem = new PopupMenu.PopupSwitchMenuItem('', false);
-    const [houers, minutes] = timer.calculateTimeStamp(_getTimerStartValue())
-    switchMenuItem.label.text = houers + ' ' +_("h : ") + minutes + ' ' +_("min");
+    const [hours, minutes] = timer.convertTime(_getTimerStartValue())
+    switchMenuItem.label.text = hours + ' ' +_("h : ") + minutes + ' ' +_("min");
     if(settings.get_boolean('root-mode-value')) {
-        switchMenuItem.label.text = houers + ' ' +_("h : ") + minutes + ' ' +_("min (root)");
+        switchMenuItem.label.text = hours + ' ' +_("h : ") + minutes + ' ' +_("min (root)");
     }
     
     switchMenuItem.connect('toggled', _onToggle);
