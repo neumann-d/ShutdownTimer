@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shutdown Timer GNOME Shell Extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-28 22:47+0200\n"
-"PO-Revision-Date: 2021-07-12 14:00+0200\n"
+"POT-Creation-Date: 2022-02-08 10:51+0100\n"
+"PO-Revision-Date: 2022-02-08 10:52+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -17,38 +17,43 @@ msgstr ""
 "X-Generator: Poedit 3.0\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _\n"
-"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: extension.js:82 extension.js:105
+#: extension.js:69 extension.js:72 extension.js:80 extension.js:83
+#: extension.js:99 extension.js:111 extension.js:113 timer.js:40 timer.js:61
+msgid "h : "
+msgstr "h : "
+
+#: extension.js:80 extension.js:111
 msgid "min"
 msgstr "min."
 
-#: extension.js:85 extension.js:107
+#: extension.js:83 extension.js:113
 msgid "min (root)"
 msgstr "min. (root)"
 
-#: extension.js:93
+#: extension.js:98
 msgid "System will shutdown in"
 msgstr "Het systeem wordt afgesloten over"
 
-#: extension.js:94
+#: extension.js:99
 msgid "minutes"
 msgstr "minuten"
 
-#: extension.js:97
+#: extension.js:102
 msgid "Shutdown Timer stopped"
 msgstr "Afsluitklok is gestopt"
 
-#: extension.js:98 extension.js:188
+#: extension.js:103 extension.js:182
 msgid "Shutdown Timer"
 msgstr "Afsluitklok"
 
-#: extension.js:116
+#: extension.js:122
 msgid "Settings"
 msgstr "Voorkeuren"
 
-#: prefs.js:35
+#: prefs.js:33
 msgid "Maximum timer value (in minutes)"
 msgstr "Maximale tijdklokwaarde (in minuten)"
 
@@ -119,6 +124,11 @@ msgstr ""
 msgid "Use suspend instead of shutdown command."
 msgstr "Zet de computer in de pauzestand in plaats van deze af te sluiten."
 
-#: timer.js:44 timer.js:64
+#: timer.js:40 timer.js:61
 msgid "min till shutdown"
 msgstr "aantal min. tot afsluiten"
+
+#, fuzzy
+#~| msgid "Slider position"
+#~ msgid "Hide Applications"
+#~ msgstr "Schuifbalkpositie"

@@ -36,7 +36,8 @@ const Timer = GObject.registerClass({}, class Timer extends GObject.Object {
             if(this._settings.get_boolean('use-suspend-value') || !this._settings.get_boolean('root-mode-value')) {
                 this._startTime = GLib.get_monotonic_time();
                 this._timerId = Mainloop.timeout_add_seconds(1, () => this._timerCallback());
-                this._menuLabel.text = this._timerValue.toString() + ' ' + _("min till shutdown");
+                const [hours, minutes] = this.convertTime(this._timerValue)
+                this._menuLabel.text = hours + ' ' + _("h : ") + minutes + ' ' + _("min till shutdown");
             } else {
                 let pkexec_path = GLib.find_program_in_path('pkexec');
                 let shutdown_path = GLib.find_program_in_path('shutdown');
@@ -55,8 +56,9 @@ const Timer = GObject.registerClass({}, class Timer extends GObject.Object {
         let secondsElapsed = Math.floor((currentTime - this._startTime) / 1000000);
         
         let secondsLeft = (this._timerValue*60) - secondsElapsed;
-        if (this._menuLabel && (secondsLeft%60 == 0)) {
-            this._menuLabel.text = Math.floor(secondsLeft/60).toString()+' '+_("min till shutdown");
+        if (this._menuLabel && (secondsLeft % 60 == 0)) {
+            const [hours, minutes] = this.convertTime(Math.floor(secondsLeft / 60))
+            this._menuLabel.text = hours + ' ' +_("h : ") + minutes +' ' +_("min till shutdown");
         }
         if (secondsLeft > 0) {
             return true;
@@ -64,6 +66,17 @@ const Timer = GObject.registerClass({}, class Timer extends GObject.Object {
         
         this._callbackAction();
         return false;
+    }
+
+    /**
+    * Calculates hours and minutes from a time in minutes
+    * @param {number} timeInMinutes
+    * @returns {Array<number>} hours at index 0, minutes at index 1
+    */
+    convertTime(timeInMinutes) {
+        const hours = Math.floor(timeInMinutes / 60)
+        const minutes = timeInMinutes - hours * 60
+        return [hours, minutes]
     }
 
 });
