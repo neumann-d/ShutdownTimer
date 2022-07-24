@@ -79,5 +79,5 @@ You can use *POEdit* or *Gtranslator* to create or update a translation file (`.
 ### Build
 Use `gnome-extensions` tool
 ```
-$ gnome-extensions pack --podir=po --force ShutdownTimer@neumann
+$ gnome-extensions pack --podir=po --extra-source=timer.js --force src
 ```

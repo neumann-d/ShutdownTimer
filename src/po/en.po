@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shutdown Timer GNOME Shell Extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-28 22:47+0200\n"
-"PO-Revision-Date: 2021-05-28 22:47+0200\n"
+"POT-Creation-Date: 2022-07-24 15:16+0200\n"
+"PO-Revision-Date: 2022-07-24 15:16+0200\n"
 "Last-Translator: Daniel Neumann\n"
 "Language-Team: \n"
 "Language: en\n"
@@ -17,38 +17,43 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: _\n"
-"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: extension.js:82 extension.js:105
+#: extension.js:69 extension.js:72 extension.js:80 extension.js:83
+#: extension.js:99 extension.js:111 extension.js:113 timer.js:40 timer.js:61
+msgid "h : "
+msgstr "h : "
+
+#: extension.js:80 extension.js:111
 msgid "min"
 msgstr "min"
 
-#: extension.js:85 extension.js:107
+#: extension.js:83 extension.js:113
 msgid "min (root)"
 msgstr "min (root)"
 
-#: extension.js:93
+#: extension.js:98
 msgid "System will shutdown in"
 msgstr "System will shutdown in"
 
-#: extension.js:94
+#: extension.js:99
 msgid "minutes"
 msgstr "minutes"
 
-#: extension.js:97
+#: extension.js:102
 msgid "Shutdown Timer stopped"
 msgstr "Shutdown Timer stopped"
 
-#: extension.js:98 extension.js:188
+#: extension.js:103 extension.js:182
 msgid "Shutdown Timer"
 msgstr "Shutdown Timer"
 
-#: extension.js:116
+#: extension.js:122
 msgid "Settings"
 msgstr "Settings"
 
-#: prefs.js:35
+#: prefs.js:33
 msgid "Maximum timer value (in minutes)"
 msgstr "Maximum timer value (in minutes)"
 
@@ -119,6 +124,6 @@ msgstr ""
 msgid "Use suspend instead of shutdown command."
 msgstr "Use suspend instead of shutdown command."
 
-#: timer.js:44 timer.js:64
+#: timer.js:40 timer.js:61
 msgid "min till shutdown"
 msgstr "min till shutdown"

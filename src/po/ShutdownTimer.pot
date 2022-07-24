@@ -1,73 +1,118 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the Shutdown Timer GNOME Shell Extension package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# 	AUTHOR: Daniel Neumann
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Shutdown Timer GNOME Shell Extension\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-08 16:23+0100\n"
+"POT-Creation-Date: 2022-07-24 15:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
 
-#: extension.js:79 extension.js:108
+#: extension.js:69 extension.js:72 extension.js:80 extension.js:83
+#: extension.js:99 extension.js:111 extension.js:113 timer.js:40 timer.js:61
+msgid "h : "
+msgstr ""
+
+#: extension.js:80 extension.js:111
 msgid "min"
 msgstr ""
 
-#: extension.js:82 extension.js:110
+#: extension.js:83 extension.js:113
 msgid "min (root)"
 msgstr ""
 
-#: extension.js:96
+#: extension.js:98
 msgid "System will shutdown in"
 msgstr ""
 
-#: extension.js:97
+#: extension.js:99
 msgid "minutes"
 msgstr ""
 
-#: extension.js:100
+#: extension.js:102
 msgid "Shutdown Timer stopped"
 msgstr ""
 
-#: extension.js:101 extension.js:179
+#: extension.js:103 extension.js:182
 msgid "Shutdown Timer"
 msgstr ""
 
-#: extension.js:119
+#: extension.js:122
 msgid "Settings"
 msgstr ""
 
-#: prefs.js:34
+#: prefs.js:33
 msgid "Maximum timer value (in minutes)"
 msgstr ""
 
-#: prefs.js:53
+#: prefs.js:52
 #, javascript-format
 msgid "Slider position (in % from 0 to 100)"
 msgstr ""
 
-#: prefs.js:71
+#: prefs.js:70
+#: schemas/org.gnome.shell.extensions.shutdowntimer-neumann.gschema.xml:19
 msgid "Show settings button"
 msgstr ""
 
-#: prefs.js:84
+#: prefs.js:83
 msgid ""
 "Root mode (uses 'pkexec shutdown' command,\n"
 "no interruption of timer, but needs root password)"
 msgstr ""
 
-#: prefs.js:97
+#: prefs.js:96
+#: schemas/org.gnome.shell.extensions.shutdowntimer-neumann.gschema.xml:31
 msgid "Use suspend"
 msgstr ""
 
-#: timer.js:43 timer.js:63
+#: schemas/org.gnome.shell.extensions.shutdowntimer-neumann.gschema.xml:7
+msgid "Maximum time (in minutes)"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.shutdowntimer-neumann.gschema.xml:8
+msgid ""
+"Set maximum selectable time of the slider (in minutes). Use only values "
+"greater zero."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.shutdowntimer-neumann.gschema.xml:13
+msgid "Slider position"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.shutdowntimer-neumann.gschema.xml:14
+msgid ""
+"Set slider position as percent of the maximum time. Must be in range 0 and "
+"100."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.shutdowntimer-neumann.gschema.xml:20
+msgid "Show/hide settings button in widget."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.shutdowntimer-neumann.gschema.xml:25
+msgid "Root mode"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.shutdowntimer-neumann.gschema.xml:26
+msgid ""
+"Set root mode on/off. In root mode powering off is done via 'pkexec' and "
+"'shutdown' terminal command."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.shutdowntimer-neumann.gschema.xml:32
+msgid "Use suspend instead of shutdown command."
+msgstr ""
+
+#: timer.js:40 timer.js:61
 msgid "min till shutdown"
 msgstr ""
